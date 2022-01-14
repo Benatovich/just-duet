@@ -7,6 +7,33 @@ export async function getUser() {
     return client.auth.session();
 }
 
+export async function createProfile(email) {
+    const response = await client   
+        .from('profiles')
+        .insert({
+            email
+        });
+
+    return checkError(response);
+}
+
+export async function fetchProfile(id) {
+    const response = await client
+        .from('profiles')
+        .select('*, talents (*, messages (*))')
+        .match({ id })
+        .single();
+
+    return checkError(response);
+}
+
+export async function fetchProfiles() {
+    const response = await client
+        .from('profiles')
+        .select('*, talents (*)');
+    
+    return checkError(response);
+}
 
 export async function checkAuth() {
     const user = await getUser();
@@ -16,13 +43,14 @@ export async function checkAuth() {
 
 export async function redirectIfLoggedIn() {
     if (await getUser()) {
-        location.replace('./other-page');
+        location.replace('./main-page');
     }
 }
 
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
     
+    await createProfile(email);
     return response.user;
 }
 
