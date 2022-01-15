@@ -18,6 +18,18 @@ export async function createProfile(email) {
     return checkError(response);
 }
 
+export async function updateProfile(profile, talent) {
+    const response = await client
+        .from('profiles')
+        .select('*, talents (*)')
+        .insert({
+            profile,
+            talent
+        });
+
+    return checkError(response);
+}
+
 export async function fetchProfile(id) {
     const response = await client
         .from('profiles')
