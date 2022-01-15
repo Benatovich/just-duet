@@ -1,20 +1,22 @@
 import { checkAuth, logout, fetchProfiles } from '../fetch-utils.js';
-import { renderProfile } from '../render-utils.js';
+// import { renderProfile } from '../render-utils.js';
 
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
-const profilesEl = document.getElementById('profiles-container');
-
+const profilesEl = document.querySelector('.profiles-container');
+console.log(profilesEl);
 window.addEventListener('load', async() => {
-    const profiles = await fetchProfiles();
+    await displayProfiles();
 });
 
 logoutButton.addEventListener('click', () => {
     logout();
 });
 
-function displayProfiles(profiles) {
+
+async function displayProfiles() {
+    const profiles = await fetchProfiles();
     profilesEl.textContent = '';
 
     for (let profile of profiles) {
@@ -36,5 +38,7 @@ function displayProfiles(profiles) {
 
             talentsDiv.append(haveEl, wantEl);
         }
+        profileEl.append(nameEl, talentsDiv);
+        profilesEl.append(profileEl);
     }
 }

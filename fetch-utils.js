@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const SUPABASE_URL = 'https://bldkvwcsogzeeohrgemf.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MjExOTQxMiwiZXhwIjoxOTU3Njk1NDEyfQ.ZB2Np0Wtsn23P3JjRuzH5v11_nI4pm9CfkE63toNYLc';
 
@@ -50,7 +51,7 @@ export async function redirectIfLoggedIn() {
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
     
-    await createProfile(email);
+    // await createProfile(email);
     return response.user;
 }
 
