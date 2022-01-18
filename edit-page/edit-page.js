@@ -1,14 +1,35 @@
 import { 
     checkAuth, 
-    updateProfile, 
+    updateProfile,
+    fetchProfile, 
     logout } from '../fetch-utils.js';
 
 
 checkAuth();
 
 const form = document.querySelector('.form');
-
+const nameEl = document.getElementById('name');
+const interestsEl = document.getElementById('interests');
+const locationEl = document.getElementById('location');
+const aboutEl = document.getElementById('about');
+const wantsEl = document.getElementById('want-talents');
+const havesEl = document.getElementById('have-talents');
 const logoutButton = document.querySelector('#logout');
+console.log(wantsEl, havesEl);
+
+window.addEventListener('load', async() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const profile = await fetchProfile(id);
+
+    nameEl.value = profile.name;
+    interestsEl.value = profile.interests;
+    locationEl.value = profile.location;
+    aboutEl.value = profile.about;
+    wantsEl.value = profile.want_talents;
+    havesEl.value = profile.have_talents;
+});
 
 form.addEventListener('submit', async(e) => {
 
