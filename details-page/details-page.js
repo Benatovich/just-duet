@@ -28,8 +28,9 @@ async function displayProfile() {
     profileContainerEl.textContent = '';
 
     const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
 
-    const profile = await fetchProfile(params.get('id'));
+    const profile = await fetchProfile(id);
 
     const profileEl = document.createElement('div');
     const talentsDiv = document.createElement('div');
@@ -63,7 +64,6 @@ async function displayProfile() {
 
     profileEl.append(nameEl, talentsDiv, aboutDiv);
     profileContainerEl.append(profileEl);
-
 
 
 }

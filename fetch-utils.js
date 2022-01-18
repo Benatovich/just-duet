@@ -18,17 +18,11 @@ export async function createProfile(email) {
     return checkError(response);
 }
 
-export async function updateProfile(profile, talent) {
+export async function updateProfile(profile) {
     const response = await client
         .from('profiles')
-        .select('*, talents (*)')
-        .insert(
-            {
-                profile
-            },
-            {
-                talent
-            });
+        .select()
+        .insert({ profile });
 
     return checkError(response);
 }
@@ -36,20 +30,24 @@ export async function updateProfile(profile, talent) {
 export async function fetchProfile(id) {
     const response = await client
         .from('profiles')
-        .select('*, talents (*, messages (*))')
+        .select('*, messages (*)')
         .match({ id })
         .single();
 
     return checkError(response);
 }
 
+console.log(fetchProfile());
+
+
 export async function fetchProfiles() {
     const response = await client
         .from('profiles')
-        .select('*, talents (*)');
+        .select();
     
     return checkError(response);
 }
+
 
 export async function checkAuth() {
     const user = await getUser();
@@ -66,7 +64,7 @@ export async function redirectIfLoggedIn() {
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
     
-    // await createProfile(email);
+    await createProfile(email);
     return response.user;
 }
 
