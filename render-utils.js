@@ -1,6 +1,5 @@
 export function renderProfile(profile) {
 
-    console.log(profile);
 
     const profileEl = document.createElement('div');
     const talentsDiv = document.createElement('div');
@@ -16,9 +15,6 @@ export function renderProfile(profile) {
     haveEl.textContent = profile.have_talents;
     wantEl.textContent = profile.want_talents;
     emailEl.textContent = profile.email;
-
-    console.log(nameEl, haveEl, wantEl);
-
     
     talentsDiv.append(haveEl, wantEl);
         

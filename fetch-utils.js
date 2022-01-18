@@ -8,12 +8,15 @@ export async function getUser() {
     return client.auth.session();
 }
 
-export async function createProfile(email) {
+export async function createProfile(email, name, want, have) {
     const response = await client   
         .from('profiles')
-        .insert({
-            email
-        });
+        .insert([{
+            email,
+            name,
+            want_talents: [want],
+            have_talents: [have],
+        }]);
 
     return checkError(response);
 }
@@ -61,7 +64,7 @@ export async function redirectIfLoggedIn() {
 }
 
 export async function signupUser(email, password, name, want, have){
-    const response = await client.auth.signUp({ email, password, name, want, have });
+    const response = await client.auth.signUp({ email, password });
     
     await createProfile(email, name, want, have);
     return response.user;
