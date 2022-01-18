@@ -1,14 +1,18 @@
-import { checkAuth, updateProfile } from '../fetch-utils';
+import { 
+    checkAuth, 
+    updateProfile, 
+    logout } from '../fetch-utils';
 
 
 checkAuth();
 
-const container = document.querySelector('.container');
+const containerEl = document.querySelector('.container');
 const form = document.querySelector('.form');
 
 const logoutButton = document.querySelector('#logout');
 
 form.addEventListener('submit', async(e) => {
+
     e.preventDefault();
 
     const data = new FormData(form);
@@ -28,6 +32,12 @@ form.addEventListener('submit', async(e) => {
         want_id: wants,
         have_id: haves,
     });
+
+    window.location.href = '../details-page';
+});
+
+logoutButton.addEventListener('click', () => {
+    logout();
 });
 
 // if updateProfile can't take two objects, then split it into two functions using function below:
