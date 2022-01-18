@@ -25,7 +25,7 @@ async function displayProfiles() {
         const profileEl = renderProfile(profile);
 
         profileEl.addEventListener('click', () => {
-            window.location.href = '../details-page';
+            window.location.href = `../details-page/?id=${profile.id}`;
         });
 
         profilesEl.append(profileEl);

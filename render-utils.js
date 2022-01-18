@@ -6,19 +6,19 @@ export function renderProfile(profile) {
     const nameEl = document.createElement('p');
     const haveEl = document.createElement('p');
     const wantEl = document.createElement('p');
-    const emailEl = document.createElement('p');
 
     profileEl.classList.add('profile');
     talentsDiv.classList.add('talents');
 
+    profileEl.href = `../details-page/?id=${profile.id}`;
+
     nameEl.textContent = profile.name;
     haveEl.textContent = profile.have_talents;
     wantEl.textContent = profile.want_talents;
-    emailEl.textContent = profile.email;
     
     talentsDiv.append(haveEl, wantEl);
         
-    profileEl.append(nameEl, emailEl, talentsDiv);
+    profileEl.append(nameEl, talentsDiv);
 
     return profileEl;
 }
