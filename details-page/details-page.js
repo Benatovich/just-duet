@@ -60,5 +60,4 @@ async function displayProfile() {
     profileEl.append(nameEl, talentsDiv, aboutDiv);
     profileContainerEl.append(profileEl);
 
-
 }

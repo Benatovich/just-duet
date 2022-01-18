@@ -1,7 +1,7 @@
 import { 
     checkAuth, 
     updateProfile, 
-    logout } from '../fetch-utils';
+    logout } from '../fetch-utils.js';
 
 
 checkAuth();

@@ -21,13 +21,15 @@ async function displayProfiles() {
 
     profilesEl.textContent = '';
 
-    const profileEl = renderProfile(profiles);
+    for (let profile of profiles) {
+        const profileEl = renderProfile(profile);
 
-    profileEl.addEventListener('click', () => {
-        window.location.href = '../details-page';
-    });
-    
-    profilesEl.append(profileEl);
+        profileEl.addEventListener('click', () => {
+            window.location.href = '../details-page';
+        });
 
-    
+        profilesEl.append(profileEl);
+
+    }
+
 }
