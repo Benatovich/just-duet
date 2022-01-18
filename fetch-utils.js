@@ -22,10 +22,13 @@ export async function updateProfile(profile, talent) {
     const response = await client
         .from('profiles')
         .select('*, talents (*)')
-        .insert({
-            profile,
-            talent
-        });
+        .insert(
+            {
+                profile
+            },
+            {
+                talent
+            });
 
     return checkError(response);
 }

@@ -1,4 +1,4 @@
-import { checkAuth, createProfile } from '../fetch-utils';
+import { checkAuth, updateProfile } from '../fetch-utils';
 
 
 checkAuth();
