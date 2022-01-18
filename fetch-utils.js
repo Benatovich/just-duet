@@ -14,8 +14,8 @@ export async function createProfile(email, name, want, have) {
         .insert([{
             email,
             name,
-            want_talents: [want],
-            have_talents: [have],
+            want_talents: want,
+            have_talents: have,
         }]);
 
     return checkError(response);

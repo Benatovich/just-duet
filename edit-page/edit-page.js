@@ -12,8 +12,9 @@ const nameEl = document.getElementById('name');
 const interestsEl = document.getElementById('interests');
 const locationEl = document.getElementById('location');
 const aboutEl = document.getElementById('about');
-const wantsEl = document.getElementById('want-talents');
 const havesEl = document.getElementById('have-talents');
+const wantsEl = document.getElementById('want-talents');
+
 const logoutButton = document.querySelector('#logout');
 console.log(wantsEl, havesEl);
 
@@ -23,12 +24,13 @@ window.addEventListener('load', async() => {
 
     const profile = await fetchProfile(id);
 
-    nameEl.value = profile.name;
-    interestsEl.value = profile.interests;
-    locationEl.value = profile.location;
-    aboutEl.value = profile.about;
-    wantsEl.value = profile.want_talents;
-    havesEl.value = profile.have_talents;
+    nameEl.defaultValue = profile.name;
+    interestsEl.defaultValue = profile.interests;
+    locationEl.defaultValue = profile.location;
+    aboutEl.defaultValue = profile.about;
+    havesEl.defaultValue = profile.have_talents;
+    wantsEl.defaultValue = profile.want_talents;
+    
 });
 
 form.addEventListener('submit', async(e) => {
