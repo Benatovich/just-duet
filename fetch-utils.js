@@ -37,7 +37,6 @@ export async function fetchProfile(id) {
     return checkError(response);
 }
 
-console.log(fetchProfile());
 
 
 export async function fetchProfiles() {
