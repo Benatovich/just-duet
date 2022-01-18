@@ -6,7 +6,6 @@ import {
 
 checkAuth();
 
-const containerEl = document.querySelector('.container');
 const form = document.querySelector('.form');
 
 const logoutButton = document.querySelector('#logout');
@@ -28,9 +27,8 @@ form.addEventListener('submit', async(e) => {
         interests: interests,
         about: about,
         location: location,
-    }, {
-        want_id: wants,
-        have_id: haves,
+        want_talents: wants,
+        have_talents: haves,
     });
 
     window.location.href = '../details-page';
