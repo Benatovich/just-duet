@@ -60,10 +60,10 @@ export async function redirectIfLoggedIn() {
     }
 }
 
-export async function signupUser(email, password){
-    const response = await client.auth.signUp({ email, password });
+export async function signupUser(email, password, name, want, have){
+    const response = await client.auth.signUp({ email, password, name, want, have });
     
-    await createProfile(email);
+    await createProfile(email, name, want, have);
     return response.user;
 }
 
