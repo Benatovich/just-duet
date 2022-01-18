@@ -39,6 +39,8 @@ async function displayProfile() {
     const locationEl = document.createElement('p');
     const interestsEl = document.createElement('p');
     const aboutEl = document.createElement('p');
+    const haveEl = document.createElement('p');
+    const wantEl = document.createElement('p');
 
     profileEl.classList.add('profile');
     talentsDiv.classList.add('talents');
@@ -48,17 +50,10 @@ async function displayProfile() {
     locationEl.textContent = profile.location;
     interestsEl.textContent = profile.interests;
     aboutEl.textContent = profile.about;
+    haveEl.textContent = profile.have_talents;
+    wantEl.textContent = profile.want_talents;
 
-
-    for (let talent of profile.talents) {
-        const haveEl = document.createElement('p');
-        const wantEl = document.createElement('p');
-
-        haveEl.textContent = talent.talents.have_id;
-        wantEl.textContent = talent.talents.want_id;
-
-        talentsDiv.append(haveEl, wantEl);
-    }
+    talentsDiv.append(haveEl, wantEl);
 
     aboutDiv.append(interestsEl, aboutEl);
 
