@@ -1,7 +1,8 @@
 import {   
     checkAuth, 
     logout,
-    fetchProfile } from '../fetch-utils.js';
+    fetchProfile, 
+    fetchProfiles} from '../fetch-utils.js';
 
 
 // import { renderProfile } from '../render-utils.js';
@@ -9,6 +10,7 @@ import {
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
+const editButton = document.getElementById('edit-profile-button');
 const profileContainerEl = document.querySelector('.profile-container');
 
 
@@ -23,6 +25,14 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
+editButton.addEventListener('click', async() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const profile = await fetchProfile(id);
+
+    window.location.href = `../edit-page/?id=${profile.id}`;
+});
 
 async function displayProfile() {
     profileContainerEl.textContent = '';
