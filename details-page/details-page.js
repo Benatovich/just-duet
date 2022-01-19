@@ -4,7 +4,10 @@ import {
     fetchProfile, 
     
     getUser, 
-    getUserId } from '../fetch-utils.js';
+    getUserId,
+    fetchMessages,
+    createMessage
+} from '../fetch-utils.js';
 
 
 // import { renderProfile } from '../render-utils.js';
@@ -14,9 +17,25 @@ checkAuth();
 const logoutButton = document.getElementById('logout');
 const editButton = document.getElementById('edit-profile-button');
 const profileContainerEl = document.querySelector('.profile-container');
+const messagesContainerEl = document.querySelector('.messages-container');
+const form = document.querySelector('.message-form');
 
 
 // console.log(profileEl);
+
+form.addEventListener('submit', async(e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    await createMessage({
+        message: data.get('message-text')
+    });
+
+    await displayProfile();
+
+    form.reset();
+});
 
 window.addEventListener('load', async() => {
     await displayProfile();

@@ -18,6 +18,15 @@ export async function getUserId(userId) {
 
 }
 
+export async function createMessage(message) {
+    const response = await client   
+        .from('messages')
+        .insert(message)
+        .single();
+
+    return checkError(response);
+}
+
 
 
 export async function createProfile(email, name, want, have) {
@@ -63,7 +72,15 @@ export async function fetchProfile(id) {
     return checkError(response);
 }
 
+export async function fetchMessages(id) {
+    const response = await client
+        .from('messages')
+        .select()
+        .match({ id })
+        .single();
 
+    return checkError(response);
+}
 
 export async function fetchProfiles() {
     const response = await client
