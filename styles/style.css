@@ -11,13 +11,12 @@ html, body {
 
 .profile {
     border: blue 5px solid;
-    width: 100px;
     cursor: pointer;
 }
 .profiles-container {
     display: flex;
     flex-direction: row;
-    height: 100px;
+    height: 200px;
     border: red 5px solid;
     margin: 20px;
 }

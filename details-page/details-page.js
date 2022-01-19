@@ -98,13 +98,13 @@ async function fetchAndDisplayProfile() {
 
         console.log(messageTextEl, authorEl, 'testing');
         messageTextEl.textContent = message.message;
-        authorEl.textContent = message.profiles.name;
+        // authorEl.textContent = message.profiles.name;
         
         messageEl.append(authorEl, messageTextEl);
         messagesContainerEl.append(messageEl);
         
-        profileEl.append(messagesContainerEl);
     }
+    profileEl.append(messagesContainerEl);
     
 
     profileContainerEl.append(profileEl);

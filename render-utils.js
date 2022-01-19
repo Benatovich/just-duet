@@ -13,8 +13,8 @@ export function renderProfile(profile) {
     profileEl.href = `../details-page/?id=${profile.id}`;
 
     nameEl.textContent = profile.name;
-    haveEl.textContent = profile.have_talents;
-    wantEl.textContent = profile.want_talents;
+    haveEl.textContent = `Have: ${profile.have_talents}`;
+    wantEl.textContent = `Want: ${profile.want_talents}`;
     
     talentsDiv.append(haveEl, wantEl);
         
