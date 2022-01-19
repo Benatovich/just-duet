@@ -8,6 +8,7 @@ import {
     fetchMessages,
     createMessage
 } from '../fetch-utils.js';
+import { renderProfile, renderProfileDetails } from '../render-utils.js';
 
 
 // import { renderProfile } from '../render-utils.js';
@@ -34,13 +35,13 @@ form.addEventListener('submit', async(e) => {
         message: data.get('message-text')
     });
 
-    await displayProfile();
+    await fetchAndDisplayProfile();
 
     form.reset();
 });
 
 window.addEventListener('load', async() => {
-    await displayProfile();
+    await fetchAndDisplayProfile();
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -77,40 +78,19 @@ editButton.addEventListener('click', async() => {
     window.location.href = `../edit-page/?id=${profile.id}`;
 });
 
-async function displayProfile() {
-    profileContainerEl.textContent = '';
-
+// combine fetch/display profile with display messages
+// handle left and right side of the page with one function
+async function fetchAndDisplayProfile() {
+    fullProfileEl.textContent = '';
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-
+    
     const profile = await fetchProfile(id);
+    const profileEl = renderProfileDetails(profile);
 
-    const profileEl = document.createElement('div');
-    const talentsDiv = document.createElement('div');
-    const aboutDiv = document.createElement('div');
-    const nameEl = document.createElement('p');
-    const locationEl = document.createElement('p');
-    const interestsEl = document.createElement('p');
-    const aboutEl = document.createElement('p');
-    const haveEl = document.createElement('p');
-    const wantEl = document.createElement('p');
 
-    profileEl.classList.add('profile');
-    talentsDiv.classList.add('talents');
-    aboutDiv.classList.add('about');
-
-    nameEl.textContent = profile.name;
-    locationEl.textContent = profile.location;
-    interestsEl.textContent = profile.interests;
-    aboutEl.textContent = profile.about;
-    haveEl.textContent = profile.have_talents;
-    wantEl.textContent = profile.want_talents;
-
-    talentsDiv.append(haveEl, wantEl);
-
-    aboutDiv.append(interestsEl, aboutEl);
-
-    profileEl.append(nameEl, talentsDiv, aboutDiv);
     profileContainerEl.append(profileEl);
 
+    
 }
+
