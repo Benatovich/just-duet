@@ -41,3 +41,9 @@ html, body {
 .visible {
     visibility: visible;
 }
+
+.message {
+    border: pink 3px solid;
+
+}
+

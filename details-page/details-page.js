@@ -6,7 +6,8 @@ import {
     getUser, 
     getUserId,
     fetchMessages,
-    createMessage
+    createMessage,
+    getAuthor
 } from '../fetch-utils.js';
 
 import { renderProfileDetails } from '../render-utils.js';
@@ -101,7 +102,11 @@ async function fetchAndDisplayMessages() {
     console.log('messages!!!!', messages);
     
     for (let message of messages) {
+
+        const user = await getUser();
+        const userId = user.user.id;
         
+        const author = await getAuthor(userId);
 
         console.log('message!!!!', message);
 
@@ -116,9 +121,9 @@ async function fetchAndDisplayMessages() {
 
         console.log(messageTextEl, authorEl, 'testing');
         messageTextEl.textContent = message.message;
-        // authorEl.textContent = message.profiles.name;
+        authorEl.textContent = `- ${author.name}`;
         
-        messageEl.append(authorEl, messageTextEl);
+        messageEl.append(messageTextEl, authorEl);
         messagesContainerEl.append(messageEl);
     }
 }
