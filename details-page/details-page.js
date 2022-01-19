@@ -90,8 +90,6 @@ editButton.addEventListener('click', async() => {
     window.location.href = `../edit-page/?id=${profile.id}`;
 });
 
-// combine fetch/display profile with display messages
-// handle left and right side of the page with one function
 async function fetchAndDisplayProfile() {
     profileContainerEl.textContent = '';
     const params = new URLSearchParams(window.location.search);
