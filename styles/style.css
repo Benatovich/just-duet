@@ -35,3 +35,10 @@ html, body {
     flex-direction: column;
 
 }
+
+.hide {
+    visibility: hidden;
+}
+.visible {
+    visibility: visible;
+}

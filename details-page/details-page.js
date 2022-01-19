@@ -2,7 +2,9 @@ import {
     checkAuth, 
     logout,
     fetchProfile, 
-    fetchProfiles} from '../fetch-utils.js';
+    
+    getUser, 
+    getUserId } from '../fetch-utils.js';
 
 
 // import { renderProfile } from '../render-utils.js';
@@ -18,6 +20,24 @@ const profileContainerEl = document.querySelector('.profile-container');
 
 window.addEventListener('load', async() => {
     await displayProfile();
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const user = await getUser();
+    const userId = user.user.id;
+    console.log(userId);
+    
+    const profile = await getUserId(userId);
+    console.log(profile);
+    if (+id === profile.id) {
+        console.log(profile.id, id, 'match'); 
+        editButton.classList.add('visible');
+    }
+    else {
+        console.log(profile.id, id, 'no match');
+        editButton.classList.add('hide');
+    }
     // await displayMessages();
 });
 
@@ -30,6 +50,8 @@ editButton.addEventListener('click', async() => {
     const id = params.get('id');
 
     const profile = await fetchProfile(id);
+
+    
 
     window.location.href = `../edit-page/?id=${profile.id}`;
 });

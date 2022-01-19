@@ -8,6 +8,18 @@ export async function getUser() {
     return client.auth.session();
 }
 
+export async function getUserId(userId) {
+    const response = await client
+        .from('profiles')
+        .select('id')
+        .match({ user_id: userId })
+        .single();
+    return checkError(response);
+
+}
+
+
+
 export async function createProfile(email, name, want, have) {
     const response = await client   
         .from('profiles')
@@ -32,8 +44,8 @@ export async function updateProfile(profile) {
             interests: profile.interests,
             about: profile.about,
             location: profile.location,
-            want_talents: profile.wants,
-            have_talents: profile.haves,
+            want_talents: profile.want_talents,
+            have_talents: profile.have_talents,
         }])
         .match({ id: profile.user_id })
         .single();
