@@ -15,9 +15,9 @@ const locationEl = document.getElementById('location');
 const aboutEl = document.getElementById('about');
 const havesEl = document.getElementById('have-talents');
 const wantsEl = document.getElementById('want-talents');
-
 const logoutButton = document.querySelector('#logout');
-console.log(wantsEl, havesEl);
+const myPageButton = document.getElementById('my-page');
+
 
 window.addEventListener('load', async() => {
     const params = new URLSearchParams(window.location.search);
@@ -48,7 +48,7 @@ form.addEventListener('submit', async(e) => {
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-    
+
     console.log(id);
     await updateProfile({ 
         name: name,
@@ -67,8 +67,11 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
-// if updateProfile can't take two objects, then split it into two functions using function below:
-// await updateTalentsTable({
-//     want_id: wants,
-//     have_id: haves,
-// });
+myPageButton.addEventListener('click', async() => {
+    const user = await getUser();
+    const userId = user.user.id;
+
+    const profile = await getUserId(userId);
+
+    window.location.href = `../details-page/?id=${profile.id}`;
+});

@@ -22,6 +22,8 @@ const editButton = document.getElementById('edit-profile-button');
 const profileContainerEl = document.querySelector('.profile-container');
 const messagesContainerEl = document.querySelector('.messages-container');
 const form = document.querySelector('.message-form');
+const myPageButton = document.getElementById('my-page');
+
 
 
 form.addEventListener('submit', async(e) => {
@@ -68,6 +70,16 @@ window.addEventListener('load', async() => {
 logoutButton.addEventListener('click', () => {
     logout();
 });
+
+myPageButton.addEventListener('click', async() => {
+    const user = await getUser();
+    const userId = user.user.id;
+
+    const profile = await getUserId(userId);
+
+    window.location.href = `../details-page/?id=${profile.id}`;
+});
+
 
 editButton.addEventListener('click', async() => {
     const params = new URLSearchParams(window.location.search);
