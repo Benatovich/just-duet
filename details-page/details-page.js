@@ -18,6 +18,8 @@ const logoutButton = document.getElementById('logout');
 const editButton = document.getElementById('edit-profile-button');
 const profileContainerEl = document.querySelector('.profile-container');
 const messagesContainerEl = document.querySelector('.messages-container');
+const fullProfileEl = document.querySelector('.full-profile');
+
 const form = document.querySelector('.message-form');
 
 
