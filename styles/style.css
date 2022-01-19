@@ -14,7 +14,7 @@ html, body {
     cursor: pointer;
 }
 .profiles-container {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     height: 200px;
     border: red 5px solid;

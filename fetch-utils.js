@@ -17,17 +17,26 @@ export async function getUserId(userId) {
     return checkError(response);
 
 }
+export async function getAuthor(userId) {
+    const response = await client
+        .from('profiles')
+        .select('name')
+        .match({ user_id: userId })
+        .single();
+    return checkError(response);
 
-export async function createMessage(message) {
+}
+
+export async function createMessage(message, id) {
     const response = await client   
         .from('messages')
-        .insert(message)
-        .single();
+        .insert([{
+            message,
+            recipient_id: id
+        }]);
 
     return checkError(response);
 }
-
-
 
 export async function createProfile(email, name, want, have) {
     const response = await client   
@@ -76,8 +85,7 @@ export async function fetchMessages(id) {
     const response = await client
         .from('messages')
         .select()
-        .match({ id })
-        .single();
+        .match({ recipient_id: id });
 
     return checkError(response);
 }
@@ -89,6 +97,8 @@ export async function fetchProfiles() {
     
     return checkError(response);
 }
+    
+// 
 
 
 export async function checkAuth() {

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { 
     checkAuth, 
     updateProfile,
@@ -44,8 +45,10 @@ form.addEventListener('submit', async(e) => {
     const about = data.get('about');
     const wants = data.get('wants');
     const haves = data.get('haves');
+
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
+    
     console.log(id);
     await updateProfile({ 
         name: name,
