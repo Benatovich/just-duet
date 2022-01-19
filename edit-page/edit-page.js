@@ -44,7 +44,9 @@ form.addEventListener('submit', async(e) => {
     const about = data.get('about');
     const wants = data.get('wants');
     const haves = data.get('haves');
-
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    console.log(id);
     await updateProfile({ 
         name: name,
         interests: interests,
@@ -52,9 +54,10 @@ form.addEventListener('submit', async(e) => {
         location: location,
         want_talents: wants,
         have_talents: haves,
+        user_id: id
     });
 
-    window.location.href = '../details-page';
+    window.location.href = `../details-page/?id=${id}`;
 });
 
 logoutButton.addEventListener('click', () => {

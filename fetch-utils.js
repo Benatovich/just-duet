@@ -22,10 +22,21 @@ export async function createProfile(email, name, want, have) {
 }
 
 export async function updateProfile(profile) {
+    console.log(profile);
     const response = await client
+    
         .from('profiles')
-        .select()
-        .insert({ profile });
+        
+        .update([{ 
+            name: profile.name,
+            interests: profile.interests,
+            about: profile.about,
+            location: profile.location,
+            want_talents: profile.wants,
+            have_talents: profile.haves,
+        }])
+        .match({ id: profile.user_id })
+        .single();
 
     return checkError(response);
 }
