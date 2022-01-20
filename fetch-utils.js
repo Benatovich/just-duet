@@ -28,20 +28,21 @@ export async function getAuthor(userId) {
 }
 
 // getAuthorId should be the same as getUserId EXCEPT it should return the value of the id column, NOT the user_id column 
-export async function getAuthorId(userId) {
-    const response = await client
-        .from('profiles')
-        .select('id')
-        .match({ user_id: userId })
-        .single();
-    return checkError(response);
-}
+// export async function getAuthorId(userId) {
+//     const response = await client
+//         .from('profiles')
+//         .select('id')
+//         .match({ user_id: userId })
+//         .single();
+//     return checkError(response);
+// }
 
 export async function createMessage(message, id) {
     const response = await client   
         .from('messages')
         .insert([{
             message,
+            // user_id: senderId,
             recipient_id: id
         }]);
 
