@@ -2,7 +2,9 @@
 import { 
     checkAuth, 
     updateProfile,
-    fetchProfile, 
+    fetchProfile,
+    getUser,
+    getUserId, 
     logout } from '../fetch-utils.js';
 
 
@@ -17,6 +19,7 @@ const havesEl = document.getElementById('have-talents');
 const wantsEl = document.getElementById('want-talents');
 const logoutButton = document.querySelector('#logout');
 const myPageButton = document.getElementById('my-page');
+
 
 
 window.addEventListener('load', async() => {
@@ -43,8 +46,8 @@ form.addEventListener('submit', async(e) => {
     const interests = data.get('interests');
     const location = data.get('location');
     const about = data.get('about');
-    const wants = data.get('wants');
-    const haves = data.get('haves');
+    const wants = data.get('want_talents');
+    const haves = data.get('have_talents');
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -55,8 +58,8 @@ form.addEventListener('submit', async(e) => {
         interests: interests,
         about: about,
         location: location,
-        want_talents: wants,
         have_talents: haves,
+        want_talents: wants,
         user_id: id
     });
 
