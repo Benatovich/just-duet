@@ -1,9 +1,25 @@
 :root {
     --background: rgb(30, 36, 49); 
+    --card-background: white;
+    --border: rgb(212, 191, 242);
+
 }
 
 * {
     box-sizing: border-box;
+}
+
+@keyframes pulse {
+    0% {
+        color: rgb(255, 148, 198);
+    }
+    50% {
+        color: rgb(255, 226, 112);
+    }
+    100% {
+        color: rgb(140, 221, 255);
+    }
+
 }
 
 html, body {
@@ -15,14 +31,26 @@ html, body {
 }
 
 .profile {
-    border: blue 5px solid;
     cursor: pointer;
+    background-color: var(--card-background);
+    margin: .5rem;
 }
 .profiles-container {
-    display: inline-flex;
-    flex-direction: row;
-    border: red 5px solid;
+    display: flex;
+    flex-direction: column;
     margin: 20px;
+
+}
+
+.profiles-name {
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.title h3 {
+    animation: pulse 4s infinite alternate;
+    padding: 0;
+    margin-top: .8rem;
 }
 
 .top {
@@ -30,10 +58,11 @@ html, body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    border: green 2px solid;
+    border: var(--border) 2px solid;
     font-family: cursive;
     font-size: 1rem;
     cursor: pointer;
+    
 }
 
 .top a:link {
@@ -59,7 +88,8 @@ html, body {
 
 
 .bottom {
-    border: orange 5px solid;
+
+
 }
 .main {
     display: flex;

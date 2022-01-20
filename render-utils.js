@@ -9,6 +9,7 @@ export function renderProfile(profile) {
 
     profileEl.classList.add('profile');
     talentsDiv.classList.add('talents');
+    nameEl.classList.add('profiles-name');
 
     profileEl.href = `../details-page/?id=${profile.id}`;
 
