@@ -20,7 +20,7 @@ export async function getUserId(userId) {
 export async function getAuthor(userId) {
     const response = await client
         .from('profiles')
-        .select('name')
+        .select()
         .match({ user_id: userId })
         .single();
     return checkError(response);

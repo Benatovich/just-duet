@@ -133,6 +133,7 @@ async function fetchAndDisplayMessages() {
         const messageEl = document.createElement('div');
         const messageTextEl = document.createElement('p');
         const authorEl = document.createElement('p');
+        const authorName = await getAuthor(message.user_id);
         // should authorEl be clickable or messageEl?
         messageEl.addEventListener('click', async() => {
             const user = await getUser();
@@ -140,7 +141,7 @@ async function fetchAndDisplayMessages() {
             
             const messageId = await getUserId(userId);
             console.log(messageId);
-            window.location.href = `../details-page/?id=${messageId.id}`;
+            window.location.href = `../details-page/?id=${authorName.id}`;
         });
 
         messageEl.classList.add('message');
@@ -151,8 +152,7 @@ async function fetchAndDisplayMessages() {
 
         messageTextEl.textContent = message.message;
         
-        const authorName = await getAuthor(message.user_id);
-        console.log(authorName.name, 'author name');
+        console.log(authorName, 'author name');
         authorEl.textContent = `- ${authorName.name}`;
         
         messageEl.append(messageTextEl, authorEl);
