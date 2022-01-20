@@ -127,10 +127,7 @@ async function fetchAndDisplayMessages() {
         const userId = user.user.id;
         
         const author = await getAuthor(userId);
-        
-        console.log(author, 'author');
-        console.log('message!!!!', message);
-
+                
         const messageEl = document.createElement('div');
         const messageTextEl = document.createElement('p');
         const authorEl = document.createElement('p');
@@ -138,9 +135,10 @@ async function fetchAndDisplayMessages() {
         messageEl.addEventListener('click', async() => {
             const user = await getUser();
             const userId = user.user.id;
-                
-            const author = await getAuthor(userId);
-            window.location.href = `../details-page/?id=${author.id}`;
+            
+            const messageId = await getUserId(userId);
+            console.log(messageId);
+            window.location.href = `../details-page/?id=${messageId.id}`;
         });
 
         messageEl.classList.add('message');

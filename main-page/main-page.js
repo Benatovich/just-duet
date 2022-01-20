@@ -12,7 +12,12 @@ const logoutButton = document.getElementById('logout');
 const profilesEl = document.querySelector('.profiles-container');
 const myPageButton = document.getElementById('my-page');
 
+// testing shit here
+// const user = await getUser();
+// const userId = user.user.id;
 
+// const messageId = await getUserId(userId);
+// console.log(messageId);
 
 window.addEventListener('load', async() => {
     await displayProfiles();
