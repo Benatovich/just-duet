@@ -25,14 +25,16 @@ searchForm.addEventListener('submit', async(e) => {
 
     const data = new FormData(searchForm);
     const search = data.get('search');
-    
+    const profiles = await searchFunction(search);
 
-    await searchFunction(search);
-    await displayProfiles();
+    
+    await displayProfiles(profiles);
 });
 
+
 window.addEventListener('load', async() => {
-    await displayProfiles();
+    const profiles = await fetchProfiles();
+    await displayProfiles(profiles);
 });
 
 logoutButton.addEventListener('click', () => {
@@ -49,8 +51,9 @@ myPageButton.addEventListener('click', async() => {
     window.location.href = `../details-page/?id=${profile.id}`;
 });
 
-async function displayProfiles() {
-    const profiles = await fetchProfiles();
+
+async function displayProfiles(profiles) {
+    
 
     profilesEl.textContent = '';
 
