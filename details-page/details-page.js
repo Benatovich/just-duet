@@ -80,6 +80,16 @@ myPageButton.addEventListener('click', async() => {
     window.location.href = `../details-page/?id=${profile.id}`;
 });
 
+// I think I want this inside the fetchAndDisplayMessages function
+// messageButton.addEventListener('click', async() => {
+//     const user = await getUser();
+//     const userId = user.user.id;
+        
+//     const author = await getAuthor(userId);
+
+//     window.location.href = `../details-page/?id=${author.id}`;
+// });
+
 
 editButton.addEventListener('click', async() => {
     const params = new URLSearchParams(window.location.search);
@@ -117,13 +127,21 @@ async function fetchAndDisplayMessages() {
         const userId = user.user.id;
         
         const author = await getAuthor(userId);
-
+        
+        console.log(author, 'author');
         console.log('message!!!!', message);
 
         const messageEl = document.createElement('div');
         const messageTextEl = document.createElement('p');
         const authorEl = document.createElement('p');
-        
+        // should authorEl be clickable or messageEl?
+        messageEl.addEventListener('click', async() => {
+            const user = await getUser();
+            const userId = user.user.id;
+                
+            const author = await getAuthor(userId);
+            window.location.href = `../details-page/?id=${author.id}`;
+        });
 
         messageEl.classList.add('message');
         messageTextEl.classList.add('message-text');
