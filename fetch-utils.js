@@ -27,6 +27,14 @@ export async function getAuthor(userId) {
 
 }
 
+export async function searchFunction(searchInput) {
+    const response = await client
+        .from('profiles')
+        .select()
+        .textSearch(searchInput);
+    return checkError(response);
+}
+
 // getAuthorId should be the same as getUserId EXCEPT it should return the value of the id column, NOT the user_id column 
 // export async function getAuthorId(userId) {
 //     const response = await client
