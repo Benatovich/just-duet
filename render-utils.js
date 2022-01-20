@@ -48,7 +48,7 @@ export function renderProfileDetails(profile) {
     
     aboutDiv.append(interestsEl, aboutEl);
     
-    profileEl.append(nameEl, talentsDiv, aboutDiv);
+    profileEl.append(nameEl, locationEl, talentsDiv, aboutDiv,);
 
     return profileEl;
 }
