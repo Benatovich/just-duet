@@ -45,6 +45,8 @@ html, body {
     animation: pulse 4s infinite alternate;
     padding: 0;
     margin-top: .8rem;
+    font-family: 'Yatra One', cursive;
+    font-size: 2rem;
 }
 
 .profiles-name {
@@ -139,16 +141,3 @@ html, body {
     margin-top: 4rem;
 }
 
-.auth-container {
-    color: white; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#sign-in, #sign-up {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-}
