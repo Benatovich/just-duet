@@ -27,13 +27,23 @@ export async function getAuthor(userId) {
 
 }
 
+// export async function fetchTimestamp(messageTimestamp) {
+//     const response = await client
+//         .from('messages')
+//         .select('created_at')
+//         .match({ recipient_id: messageTimestamp })
+//         .single();
+//     return checkError(response);
+// }
+
 
 export async function createMessage(message, id) {
     const response = await client   
         .from('messages')
         .insert([{
             message,
-            recipient_id: id
+            recipient_id: id,
+
         }]);
 
     return checkError(response);

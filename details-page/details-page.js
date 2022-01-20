@@ -7,7 +7,8 @@ import {
     getUserId,
     fetchMessages,
     createMessage,
-    getAuthor
+    getAuthor,
+    fetchTimestamp
 } from '../fetch-utils.js';
 
 import { renderProfileDetails } from '../render-utils.js';
@@ -118,22 +119,31 @@ async function fetchAndDisplayMessages() {
         
         const author = await getAuthor(userId);
 
+        //const timestamp = await fetchTimestamp(messageTimestamp);
+
         console.log('message!!!!', message);
 
         const messageEl = document.createElement('div');
         const messageTextEl = document.createElement('p');
         const authorEl = document.createElement('p');
+
+        //const timestampEl = document.createElement('p');
+
         
 
         messageEl.classList.add('message');
         messageTextEl.classList.add('message-text');
         authorEl.classList.add('author-name');
 
+        //timestampEl.classList.add('message-timestamp');
+
         console.log(messageTextEl, authorEl, 'testing');
         messageTextEl.textContent = message.message;
         authorEl.textContent = `- ${author.name}`;
+
+        //timestampEl.textcontent = `- ${timestamp.created_at}`;
         
-        messageEl.append(messageTextEl, authorEl);
+        messageEl.append(messageTextEl, authorEl,);
         messagesContainerEl.append(messageEl);
     }
 }
