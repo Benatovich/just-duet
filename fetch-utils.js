@@ -27,14 +27,6 @@ export async function getAuthor(userId) {
 
 }
 
-export async function getMyPage(userId) {
-    const response = await client
-        .from('profiles')
-        .select('id')
-        .match({ user_id: userId })
-        .single();
-    return checkError(response);
-}
 
 export async function createMessage(message, id) {
     const response = await client   
