@@ -39,12 +39,6 @@ html, body {
     display: flex;
     flex-direction: column;
     margin: 20px;
-
-}
-
-.profiles-name {
-    font-family: sans-serif;
-    text-transform: uppercase;
 }
 
 .title h3 {
@@ -52,6 +46,19 @@ html, body {
     padding: 0;
     margin-top: .8rem;
 }
+
+.profiles-name {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.talents {
+    font-family: sans-serif;
+    text-transform: lowercase;
+}
+
 
 .top {
     display: flex;
@@ -62,7 +69,8 @@ html, body {
     font-family: cursive;
     font-size: 1rem;
     cursor: pointer;
-    
+    position: fixed;
+    background-color: var(--background);    
 }
 
 .top a:link {
@@ -88,13 +96,12 @@ html, body {
 
 
 .bottom {
-
-
+    margin-top: 6rem;
 }
+
 .main {
     display: flex;
     flex-direction: column;
-
 }
 
 .hide {
@@ -108,3 +115,21 @@ html, body {
     border: pink 3px solid;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-end;
+
+    margin-top: 2rem;
+    color: white;
+}
+
+.form button {
+    color: rgb(255, 148, 198);
+}
+
+.form input {
+    margin: .3rem;
+}
