@@ -32,7 +32,7 @@ export async function getAuthor(userId) {
 //     const response = await client
 //         .from('profiles')
 //         .select('id')
-//         .match({ user_id: userId })
+//         .match({ id: userId })
 //         .single();
 //     return checkError(response);
 // }

@@ -7,6 +7,7 @@ import {
     getUserId,
     fetchMessages,
     createMessage,
+    getAuthor,
     // getAuthor
 } from '../fetch-utils.js';
 
@@ -147,8 +148,12 @@ async function fetchAndDisplayMessages() {
         authorEl.classList.add('author-name');
 
         console.log(messageTextEl, authorEl, 'testing');
+
         messageTextEl.textContent = message.message;
-        authorEl.textContent = `- ${message.user_id}`;
+        
+        const authorName = await getAuthor(message.user_id);
+        console.log(authorName.name, 'author name');
+        authorEl.textContent = `- ${authorName.name}`;
         
         messageEl.append(messageTextEl, authorEl);
         messagesContainerEl.append(messageEl);
