@@ -1,131 +1,190 @@
+:root {
+    --title: rgb(64, 71, 84); 
+    --card-background: white;
+    --text: rgb(113, 48, 48);
+    --border: rgb(233, 224, 245);
 
-body {
-    /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
-    /* --color1: hsla(349, 69%, 76%, 1);
-    --color2: hsla(207, 67%, 44%, 1);
-    --color3: hsla(200, 61%, 56%, 1);
-    --color4: hsla(187, 41%, 94%, 1);
-    --color5: hsla(170, 28%, 95%, 1); */
-
-    /* --color1: hsla(45, 86%, 83%, 1);
-    --color2: hsla(135, 65%, 98%, 1);
-    --color3: hsla(315, 37%, 86%, 1);
-    --color4: hsla(45, 73%, 98%, 1);
-    --color5: hsla(224, 40%, 79%, 1); */
-    
-    --header-height: 80px;
-    --shadow: 0px 10px 20px -12px rgba(0,0,0,0.45);
-    --gutter: 30px;
-    --footer-height: 25px;
-    
-    font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: calc(var(--footer-height));
+* {
+    box-sizing: border-box;
 }
 
-section {
-    background-color: var(--color5);
-    width: 1000px;
-    max-width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: var(--gutter);
-    padding-bottom: var(--gutter);
-    margin-top: var(--gutter);
-    margin-bottom: var(--gutter);
-    border: solid 2px var(--color1);
+@keyframes pulse {
+    0% {
+        background-color: rgb(250, 237, 237);
+    }
+    50% {
+        background-color: rgb(254, 251, 241);
+    }
+    100% {
+        background-color: rgb(248, 253, 255);
+    }
+
 }
 
-header {
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--color3);
-    height: var(--header-height);
-    box-shadow: var(--shadow);
-}
-
-h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.gutter-right {
-    margin-right: 20px;
-}
-
-.main-logo {
-    animation: pulse 5s infinite ease-in-out;
-}
-
-header img {
-    height: var(--header-height);
-}
-
-p {
-    margin: var(--gutter);
-}
-  
-footer {
-    position: fixed;
+html, body {
     width: 100%;
-    bottom: 0;
-    height: var(--footer-height);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    animation: pulse 18s infinite alternate;
+}
+
+.profile {
+    cursor: pointer;
+    background-color: var(--card-background);
+    margin: .5rem;
+    padding-left: 1rem;
+    color: var(--text);
+    border: var(--border) 2px solid;
+}
+
+.profiles-container {
     display: flex;
-    justify-content: flex-end;
-    background-color: var(--color3);
-    box-shadow: var(--shadow);
+    flex-direction: column;
+    margin: 20px;
 }
 
-  
-  @keyframes pulse {
-    20% {
-      transform: rotate3d(-10, -10, -10, 50deg) scale(1.2);
-    }
-
-    40% {
-        transform: rotate3d(10, 10, -10, 50deg) scale(1);
-    }
-
-    60% {
-        transform: rotate3d(-10, 10, 10, 50deg) scale(1.2);
-      }
-
-    80% {
-        transform: rotate3d(10, 10, 10, 50deg) scale(1);
-    }
-
-  }
-
-#logout {
-    position: fixed;
-    right: 20px;
-    top: 90px;
+.title h3 {
+    padding: 0;
+    margin: 0; 
+    margin-top: 1rem;
+    font-family: 'Yatra One', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    color: var(--title)
 }
 
-.auth-main {
+.profiles-name {
+   font-family: 'Yatra One', sans-serif;
+   font-size: 1rem;
+   text-transform: uppercase;
+}
+
+
+.talents {
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: .85rem;
+    letter-spacing: .1rem;
+    text-transform: lowercase;
+}
+
+
+.top {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: .85rem;
+    letter-spacing: .1rem;
+    text-transform: lowercase;
+    cursor: pointer;
+    position: fixed;
+    animation: pulse 18s infinite alternate;    
 }
 
-.auth-container {
-    margin: 10px;
+hr {
+    height: .02rem;
+    border: none;
+    background-color: var(--title);
 }
 
-.auth-container form {
+.top a:link {
+    color: var(--title);
+    margin: .5rem .8rem;
+    text-decoration: none;
+}
+
+.top a:visited { 
+    color: var(--title);
+    text-decoration: none;
+}
+
+.top button {
+    margin: .5rem .8rem;
+    border: none;
+    background-color: var(--background);
+    color: var(--title);
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: .85rem;
+    letter-spacing: .1rem;
+    text-transform: lowercase;
+    cursor: pointer;
+}
+
+
+.bottom {
+    margin-top: 6rem;
+    /* width: 100%; */
+}
+
+.main {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.auth-container button {
-    margin: 10px;
+.hide {
+    visibility: hidden;
+}
+.visible {
+    visibility: visible;
+}
+
+.message {
+    border: pink 3px solid;
+}
+
+.form {
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: .15rem;
+    text-transform: lowercase;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    color: var(--title);
+}
+
+.form button {
+    color: var(--text);
+    background-color: var(--border);
+    border: none;
+    padding: .2rem;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    text-transform: lowercase;
+    letter-spacing: .1rem;
+    margin:.2rem;
+}
+
+.form input {
+    color: var(--text);
+    margin: .2rem;
+    padding: .2rem;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    letter-spacing: .1rem;
+    text-transform: lowercase;
+    border: none;
+    
+}
+
+.about-cards {
+    margin-top: 4rem;
+}
+
+.full-profile {
+    margin-top: 20rem;
 }
