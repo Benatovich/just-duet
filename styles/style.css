@@ -35,7 +35,11 @@ html, body {
     cursor: pointer;
     background-color: var(--card-background);
     margin: .5rem;
+    padding-left: 1rem;
+    color: var(--text);
+    border: var(--border) 2px solid;
 }
+
 .profiles-container {
     display: flex;
     flex-direction: column;
@@ -44,23 +48,28 @@ html, body {
 
 .title h3 {
     padding: 0;
-    margin: 0;
+    margin: 0; 
+    margin-top: 1rem;
     font-family: 'Yatra One', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: .5rem;
     color: var(--title)
 }
 
 .profiles-name {
-    font-family: sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
+   font-family: 'Yatra One', sans-serif;
+   font-size: 1rem;
+   text-transform: uppercase;
 }
 
 
 .talents {
-    font-family: sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: .85rem;
+    letter-spacing: .1rem;
     text-transform: lowercase;
 }
 
@@ -73,8 +82,10 @@ html, body {
     border: var(--border) 2px solid;
     font-family: 'Lato', sans-serif;
     font-style: italic;
-    font-weight: 300;
-    font-size: 1rem;
+    font-weight: 400;
+    font-size: .85rem;
+    letter-spacing: .1rem;
+    text-transform: lowercase;
     cursor: pointer;
     position: fixed;
     animation: pulse 18s infinite alternate;    
@@ -98,8 +109,10 @@ html, body {
     color: var(--title);
     font-family: 'Lato', sans-serif;
     font-style: italic;
-    font-weight: 300;
-    font-size: 1rem;
+    font-weight: 400;
+    font-size: .85rem;
+    letter-spacing: .1rem;
+    text-transform: lowercase;
     cursor: pointer;
 }
 
