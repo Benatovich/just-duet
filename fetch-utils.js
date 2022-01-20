@@ -28,10 +28,11 @@ export async function getAuthor(userId) {
 }
 
 export async function searchFunction(searchInput) {
+    console.log(searchInput, 'searchInput');
     const response = await client
         .from('profiles')
         .select()
-        .textSearch(searchInput);
+        .match({ have_talents: searchInput });
     return checkError(response);
 }
 

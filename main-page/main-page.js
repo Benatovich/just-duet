@@ -25,9 +25,10 @@ searchForm.addEventListener('submit', async(e) => {
 
     const data = new FormData(searchForm);
     const search = data.get('search');
-    const searchInput = search.value;
+    
 
-    await searchFunction(searchInput);
+    await searchFunction(search);
+    await displayProfiles();
 });
 
 window.addEventListener('load', async() => {
