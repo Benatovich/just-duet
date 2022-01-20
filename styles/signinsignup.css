@@ -1,7 +1,8 @@
 :root {
-    --background: rgb(30, 36, 49); 
+    --title: rgb(64, 71, 84); 
     --card-background: white;
-    --border: rgb(212, 191, 242);
+    --text: rgb(113, 48, 48);
+    --border: rgb(233, 224, 245);
 
 }
 
@@ -11,13 +12,13 @@
 
 @keyframes pulse {
     0% {
-        color: rgb(255, 148, 198);
+        background-color: rgb(255, 240, 247);
     }
     50% {
-        color: rgb(255, 226, 112);
+        background-color: rgb(255, 249, 230);
     }
     100% {
-        color: rgb(140, 221, 255);
+        background-color: rgb(249, 253, 255);
     }
 
 }
@@ -27,33 +28,19 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
-    background-color: var(--background);
+    animation: pulse 18s infinite alternate;
 }
 
 
 .title h3 {
-    animation: pulse 8s infinite alternate;
     padding: 0;
     margin: 4rem 1rem 2rem 1rem;
     font-family: 'Yatra One', sans-serif;
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: .5rem;
+    color: var(--title)
 }
-
-.profiles-name {
-    font-family: sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-
-.talents {
-    font-family: sans-serif;
-    text-transform: lowercase;
-}
-
-
 
 .main {
     display: flex;
@@ -63,33 +50,39 @@ html, body {
 
 
 .form {
-    font-family: 'Luxurious Roman', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: .15rem;
     text-transform: lowercase;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-    color: white;
+    color: var(--title);
 }
 
 .form button {
-    color: rgb(255, 148, 198);
-    font-family: 'Luxurious Roman', sans-serif;
+    color: var(--text);
+    background-color: var(--border);
+    border: none;
+    padding: .2rem;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    text-transform: lowercase;
+    letter-spacing: .1rem;
     margin:.2rem;
 }
 
 .form input {
+    color: var(--text);
     margin: .2rem;
     padding: .2rem;
-    font-family: 'Luxurious Roman', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    letter-spacing: .1rem;
     text-transform: lowercase;
+    border: none;
     
 }
 
-
-.auth-container {
-    color: white; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
