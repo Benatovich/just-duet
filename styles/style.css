@@ -1,5 +1,5 @@
 :root {
-    --title: rgb(64, 71, 84); 
+    --title: rgb(54, 64, 82); 
     --card-background: white;
     --text: rgb(113, 48, 48);
     --border: rgb(233, 224, 245);
@@ -31,6 +31,16 @@ html, body {
     animation: pulse 18s infinite alternate;
 }
 
+.nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+
+
 .profile {
     cursor: pointer;
     background-color: var(--card-background);
@@ -51,6 +61,7 @@ html, body {
     padding: 0;
     margin: 0; 
     margin-top: 1rem;
+    margin-right: .8rem;
     margin-bottom: 1rem;
     font-family: 'Yatra One', sans-serif;
     font-size: 2rem;
@@ -170,7 +181,6 @@ html, body {
     color: var(--text);
     background-color: var(--border);
     border: none;
-    padding: .2rem;
     font-family: 'Lato', sans-serif;
     font-style: italic;
     text-transform: lowercase;
@@ -190,7 +200,7 @@ html, body {
     margin: 0rem;
 }
 
-.form input, .search input, .edit-form input {
+.form input, .search-form input, .edit-form input {
     color: var(--text);
     margin: .2rem;
     padding: .2rem;
@@ -221,14 +231,9 @@ html, body {
 
     }
 
-    .nav-and-search {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        flex-wrap: wrap;
-        padding: 0;
-        margin: 0;
+    .title h3 {
+        font-size: 2.5rem;
     }
-    
+
 
   }
