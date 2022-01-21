@@ -15,7 +15,7 @@ export function renderProfile(profile) {
 
     nameEl.textContent = profile.name;
     haveEl.textContent = `Have: ${profile.have_talents}`;
-    wantEl.textContent = `Want: ${profile.want_talents}`;
+    wantEl.textContent = `Need: ${profile.want_talents}`;
     
     talentsDiv.append(haveEl, wantEl);
         
@@ -42,10 +42,10 @@ export function renderProfileDetails(profile) {
 
     nameEl.textContent = profile.name;
     locationEl.textContent = `${profile.location}`;
-    interestsEl.textContent = `interests:${profile.interests}`;
+    interestsEl.textContent = `interests: ${profile.interests}`;
     aboutEl.textContent = `about me: ${profile.about}`;
     haveEl.textContent = `have talent: ${profile.have_talents}`;
-    wantEl.textContent = `want talent: ${profile.want_talents}`;
+    wantEl.textContent = `need talent: ${profile.want_talents}`;
     
     talentsDiv.append(haveEl, wantEl);
     
