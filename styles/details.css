@@ -213,3 +213,23 @@ button {
 #edit-profile-button {
     margin-left: .5rem;
 }
+
+@media only screen and (min-width: 600px) {
+
+    .page-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        width: 20rem;
+    }
+    
+    .left {
+        margin-top: 1rem;
+    }
+
+    .right {
+        margin-top: 2rem;
+    }
+
+  }

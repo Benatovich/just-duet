@@ -51,6 +51,7 @@ html, body {
     padding: 0;
     margin: 0; 
     margin-top: 1rem;
+    margin-bottom: 1rem;
     font-family: 'Yatra One', sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
@@ -208,3 +209,31 @@ html, body {
 .full-profile {
     margin-top: 20rem;
 }
+
+@media only screen and (min-width: 600px) {
+
+    .profiles-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px;
+
+    }
+
+    .nav-and-search {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .page-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+  }
