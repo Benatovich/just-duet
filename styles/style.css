@@ -18,7 +18,7 @@
         background-color: rgb(254, 251, 241);
     }
     100% {
-        background-color: rgb(248, 253, 255);
+        background-color: rgb(241, 251, 255);
     }
 
 }
@@ -38,6 +38,7 @@ html, body {
     padding-left: 1rem;
     color: var(--text);
     border: var(--border) 2px solid;
+    width: 12rem;
 }
 
 .profiles-container {
@@ -90,12 +91,6 @@ html, body {
     animation: pulse 18s infinite alternate;    
 }
 
-hr {
-    height: .02rem;
-    border: none;
-    background-color: var(--title);
-}
-
 .top a:link {
     color: var(--title);
     margin: .5rem .8rem;
@@ -123,7 +118,7 @@ hr {
 
 
 .bottom {
-    margin-top: 6rem;
+    margin-top: 8rem;
     /* width: 100%; */
 }
 
@@ -159,7 +154,6 @@ hr {
 
 .form button {
     color: var(--text);
-    background-color: var(--border);
     border: none;
     padding: .2rem;
     font-family: 'Lato', sans-serif;
@@ -169,7 +163,19 @@ hr {
     margin:.2rem;
 }
 
-.form input {
+#search-button {
+    color: var(--text);
+    background-color: var(--border);
+    border: none;
+    padding: .2rem;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    text-transform: lowercase;
+    letter-spacing: .1rem;
+    margin: 0rem;
+}
+
+.form input, .search input {
     color: var(--text);
     margin: .2rem;
     padding: .2rem;
