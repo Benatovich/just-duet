@@ -159,6 +159,7 @@ textarea {
     padding-left: 1rem;
     color: var(--text);
     width: 18rem;
+    margin-bottom: .8rem;
 }
 
 
@@ -222,14 +223,39 @@ button {
         flex-wrap: nowrap;
         justify-content: space-evenly;
         width: 20rem;
+        height: 2rem length;
+
     }
+    .form-container {
+       position: fixed;
+       margin-top: 6rem;
+    }
+
+    .messages-container {
+        margin-top: 14rem;
     
-    .left {
-        margin-top: 1rem;
+    }
+
+    .profile-container {
+        margin: 0;
     }
 
     .right {
-        margin-top: 2rem;
+        margin-left: .5rem;
+    }
+
+    .left {
+        margin-right: .5rem;
+    }
+  }
+
+  @media only screen and (min-width: 750px) {
+    .right {
+        margin-left: 3rem;
+    }
+
+    .left {
+        margin-right: 3rem;
     }
 
   }
