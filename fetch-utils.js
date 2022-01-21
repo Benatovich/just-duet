@@ -32,7 +32,10 @@ export async function searchFunction(searchInput) {
     const response = await client
         .from('profiles')
         .select()
-        .match({ have_talents: searchInput });
+        //.match({ want_talents: searchInput })
+        .or(`name.ilike.*${searchInput}*,want_talents.ilike.*${searchInput}*,have_talents.ilike.*${searchInput}*`);
+            //{ want_talents: searchInput }, 
+            //{ have_talents: searchInput });
     return checkError(response);
 }
 
