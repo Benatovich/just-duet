@@ -1,16 +1,16 @@
 import { 
     checkAuth, 
     logout, 
-    fetchProfiles, 
+    // fetchProfiles, 
     getUser, 
     getUserId } from '../fetch-utils.js';
 
-import { renderProfile } from '../render-utils.js';
+// import { renderProfile } from '../render-utils.js';
 
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
-const profilesEl = document.querySelector('.profiles-container');
+// const profilesEl = document.querySelector('.profiles-container');
 const myPageButton = document.getElementById('my-page');
 
 
