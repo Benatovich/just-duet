@@ -17,6 +17,7 @@ const want = document.getElementById('sign-up-want');
 const have = document.getElementById('sign-up-have');
 
 console.log(name);
+console.log(signUpEmail);
 // if user currently logged in, redirect
 redirectIfLoggedIn();
 

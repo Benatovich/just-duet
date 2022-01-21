@@ -10,7 +10,7 @@ import {
 
 checkAuth();
 
-const form = document.querySelector('.form');
+const form = document.querySelector('.edit-form');
 const nameEl = document.getElementById('name');
 const interestsEl = document.getElementById('interests');
 const locationEl = document.getElementById('location');

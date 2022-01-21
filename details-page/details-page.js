@@ -7,7 +7,8 @@ import {
     getUserId,
     fetchMessages,
     createMessage,
-    getAuthor
+    getAuthor,
+    // getAuthor
 } from '../fetch-utils.js';
 
 import { renderProfileDetails } from '../render-utils.js';
@@ -30,11 +31,11 @@ form.addEventListener('submit', async(e) => {
     e.preventDefault();
 
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
+    const recipientId = params.get('id');
 
     const data = new FormData(form);
 
-    await createMessage(data.get('message-text'), id);
+    await createMessage(data.get('message-text'), recipientId);
 
 
     await fetchAndDisplayMessages();
@@ -123,14 +124,16 @@ async function fetchAndDisplayMessages() {
     
     for (let message of messages) {
 
-        const user = await getUser();
-        const userId = user.user.id;
+        // const user = await getUser();
+
+        // const userId = user.user.id;
         
-        const author = await getAuthor(userId);
+        // const author = message.user_id;
                 
         const messageEl = document.createElement('div');
         const messageTextEl = document.createElement('p');
         const authorEl = document.createElement('p');
+        const authorName = await getAuthor(message.user_id);
         // should authorEl be clickable or messageEl?
         messageEl.addEventListener('click', async() => {
             const user = await getUser();
@@ -138,7 +141,7 @@ async function fetchAndDisplayMessages() {
             
             const messageId = await getUserId(userId);
             console.log(messageId);
-            window.location.href = `../details-page/?id=${messageId.id}`;
+            window.location.href = `../details-page/?id=${authorName.id}`;
         });
 
         messageEl.classList.add('message');
@@ -146,8 +149,11 @@ async function fetchAndDisplayMessages() {
         authorEl.classList.add('author-name');
 
         console.log(messageTextEl, authorEl, 'testing');
+
         messageTextEl.textContent = message.message;
-        authorEl.textContent = `- ${author.name}`;
+        
+        console.log(authorName, 'author name');
+        authorEl.textContent = `- ${authorName.name}`;
         
         messageEl.append(messageTextEl, authorEl);
         messagesContainerEl.append(messageEl);

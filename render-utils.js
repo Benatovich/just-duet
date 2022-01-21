@@ -34,16 +34,18 @@ export function renderProfileDetails(profile) {
     const haveEl = document.createElement('p');
     const wantEl = document.createElement('p');
     
+    nameEl.classList.add('profiles-name');
     profileEl.classList.add('profile');
     talentsDiv.classList.add('talents');
     aboutDiv.classList.add('about');
-    
+    locationEl.classList.add('location');
+
     nameEl.textContent = profile.name;
-    locationEl.textContent = profile.location;
-    interestsEl.textContent = profile.interests;
-    aboutEl.textContent = profile.about;
-    haveEl.textContent = profile.have_talents;
-    wantEl.textContent = profile.want_talents;
+    locationEl.textContent = `${profile.location}`;
+    interestsEl.textContent = `interests:${profile.interests}`;
+    aboutEl.textContent = `about me: ${profile.about}`;
+    haveEl.textContent = `have talent: ${profile.have_talents}`;
+    wantEl.textContent = `want talent: ${profile.want_talents}`;
     
     talentsDiv.append(haveEl, wantEl);
     

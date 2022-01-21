@@ -9,7 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,100;1,300;1,400&family=Yatra+One&display=swap');
     </style>
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/details.css">
     <title>Details</title>
 </head>
 
@@ -19,37 +19,36 @@
             <div class="title">
                 <h3>Just Duet</h3>
             </div>
-            <div>
+            <div class="nav">
                 <a href="../main-page/">Main Page</a>
                 <button id="my-page">My Page</button>
                 <a href="../about/">About</a>
                 <button id="logout">Logout</button>
-
             </div>
         </section>
-        <div class="full-profile">
-            <section class="left">
-                <div class="profile-container">
-
-               
-                </div>
-                <button id="edit-profile-button">Edit Profile</button>
-                
-            </section>
-            <section class="right">
-                <div class="form-container">
-                    <form class="message-form">
-                        <label>
-                            <textarea name="message-text"></textarea>
-                        </label>
-                        <button>Send Message</button>
-                    </form>
-                </div>
-                <div class="messages-container">
+            <div class="page-container">
+                <section class="left">
+                    <div class="profile-container">
+    
+                   
+                    </div>
+                    <button id="edit-profile-button">Edit Profile</button>
                     
-                </div>
-            </section>
-        </div>
+                </section>
+                <section class="right">
+                    <div class="form-container">
+                        <form class="message-form">
+                            <label>
+                                <textarea name="message-text"></textarea>
+                            </label>
+                            <button>Send Message</button>
+                        </form>
+                    </div>
+                    <div class="messages-container">
+                        
+                    </div>
+                </section>
+            </div>
     </main>
 
     <script type="module" src="./details-page.js"></script>

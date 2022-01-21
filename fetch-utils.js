@@ -20,28 +20,41 @@ export async function getUserId(userId) {
 export async function getAuthor(userId) {
     const response = await client
         .from('profiles')
-        .select('name')
+        .select()
         .match({ user_id: userId })
         .single();
     return checkError(response);
 
+}
+
+export async function searchFunction(searchInput) {
+    console.log(searchInput, 'searchInput');
+    const response = await client
+        .from('profiles')
+        .select()
+        //.match({ want_talents: searchInput })
+        .or(`name.ilike.*${searchInput}*,want_talents.ilike.*${searchInput}*,have_talents.ilike.*${searchInput}*`);
+            //{ want_talents: searchInput }, 
+            //{ have_talents: searchInput });
+    return checkError(response);
 }
 
 // getAuthorId should be the same as getUserId EXCEPT it should return the value of the id column, NOT the user_id column 
-export async function getAuthorId(userId) {
-    const response = await client
-        .from('profiles')
-        .select('id')
-        .match({ user_id: userId })
-        .single();
-    return checkError(response);
-}
+// export async function getAuthorId(userId) {
+//     const response = await client
+//         .from('profiles')
+//         .select('id')
+//         .match({ id: userId })
+//         .single();
+//     return checkError(response);
+// }
 
 export async function createMessage(message, id) {
     const response = await client   
         .from('messages')
         .insert([{
             message,
+            // user_id: senderId,
             recipient_id: id
         }]);
 

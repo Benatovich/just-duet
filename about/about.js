@@ -1,22 +1,18 @@
-import { checkAuth, 
+import { 
+    checkAuth, 
     logout, 
-    fetchProfiles, 
+    // fetchProfiles, 
     getUser, 
     getUserId } from '../fetch-utils.js';
 
-import { renderProfile } from '../render-utils.js';
+// import { renderProfile } from '../render-utils.js';
 
 checkAuth();
 
 const logoutButton = document.getElementById('logout');
-const profilesEl = document.querySelector('.profiles-container');
+// const profilesEl = document.querySelector('.profiles-container');
 const myPageButton = document.getElementById('my-page');
 
-
-
-window.addEventListener('load', async() => {
-    await displayProfiles();
-});
 
 logoutButton.addEventListener('click', () => {
     logout();
@@ -32,20 +28,20 @@ myPageButton.addEventListener('click', async() => {
     window.location.href = `../details-page/?id=${profile.id}`;
 });
 
-async function displayProfiles() {
-    const profiles = await fetchProfiles();
+// async function displayProfiles() {
+//     const profiles = await fetchProfiles();
 
-    profilesEl.textContent = '';
+//     profilesEl.textContent = '';
 
-    for (let profile of profiles) {
-        const profileEl = renderProfile(profile);
+//     for (let profile of profiles) {
+//         const profileEl = renderProfile(profile);
 
-        profileEl.addEventListener('click', () => {
-            window.location.href = `../details-page/?id=${profile.id}`;
-        });
+//         profileEl.addEventListener('click', () => {
+//             window.location.href = `../details-page/?id=${profile.id}`;
+//         });
 
-        profilesEl.append(profileEl);
+//         profilesEl.append(profileEl);
 
-    }
+//     }
 
-}
+// }
