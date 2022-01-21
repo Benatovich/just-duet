@@ -200,3 +200,16 @@ button {
     align-items: center;
     width: 20rem;
 }
+
+.left { 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+
+}
+
+#edit-profile-button {
+    margin-left: .5rem;
+}
