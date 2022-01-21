@@ -45,7 +45,7 @@ html, body {
     cursor: pointer;
     background-color: var(--card-background);
     margin: .5rem;
-    padding-left: 1rem;
+    padding: 0rem .25rem 1rem 1rem;
     color: var(--text);
     border: var(--border) 2px solid;
     width: 18rem;

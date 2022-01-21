@@ -41,8 +41,8 @@ export function renderProfileDetails(profile) {
     locationEl.classList.add('location');
 
     nameEl.textContent = profile.name;
-    locationEl.textContent = profile.location;
-    interestsEl.textContent = `interests: ${profile.interests}`;
+    locationEl.textContent = `${profile.location}`;
+    interestsEl.textContent = `interests:${profile.interests}`;
     aboutEl.textContent = `about me: ${profile.about}`;
     haveEl.textContent = `have talent: ${profile.have_talents}`;
     wantEl.textContent = `want talent: ${profile.want_talents}`;
