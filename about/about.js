@@ -1,4 +1,5 @@
-import { checkAuth, 
+import { 
+    checkAuth, 
     logout, 
     fetchProfiles, 
     getUser, 
@@ -12,11 +13,6 @@ const logoutButton = document.getElementById('logout');
 const profilesEl = document.querySelector('.profiles-container');
 const myPageButton = document.getElementById('my-page');
 
-
-
-window.addEventListener('load', async() => {
-    await displayProfiles();
-});
 
 logoutButton.addEventListener('click', () => {
     logout();
