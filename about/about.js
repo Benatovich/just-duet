@@ -28,20 +28,20 @@ myPageButton.addEventListener('click', async() => {
     window.location.href = `../details-page/?id=${profile.id}`;
 });
 
-async function displayProfiles() {
-    const profiles = await fetchProfiles();
+// async function displayProfiles() {
+//     const profiles = await fetchProfiles();
 
-    profilesEl.textContent = '';
+//     profilesEl.textContent = '';
 
-    for (let profile of profiles) {
-        const profileEl = renderProfile(profile);
+//     for (let profile of profiles) {
+//         const profileEl = renderProfile(profile);
 
-        profileEl.addEventListener('click', () => {
-            window.location.href = `../details-page/?id=${profile.id}`;
-        });
+//         profileEl.addEventListener('click', () => {
+//             window.location.href = `../details-page/?id=${profile.id}`;
+//         });
 
-        profilesEl.append(profileEl);
+//         profilesEl.append(profileEl);
 
-    }
+//     }
 
-}
+// }
