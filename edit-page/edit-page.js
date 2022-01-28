@@ -26,7 +26,7 @@ window.addEventListener('load', async() => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
-    const profile = await fetchProfile(id);
+    const { profile } = await fetchProfile(id);
 
     nameEl.defaultValue = profile.name;
     interestsEl.defaultValue = profile.interests;
