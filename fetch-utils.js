@@ -27,6 +27,7 @@ export async function getAuthor(userId) {
 
 }
 
+// nice work with this function!
 export async function searchFunction(searchInput) {
     console.log(searchInput, 'searchInput');
     const response = await client

@@ -26,6 +26,7 @@ const form = document.querySelector('.message-form');
 const myPageButton = document.getElementById('my-page');
 
 
+// nice work in this file breaking your reusable work down into well-named functions! Very impressive how you were able to build such a feature-rich app with so few lines of code. "Less code than I expected" is one of the surest signs of a great project :)
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
@@ -57,15 +58,10 @@ window.addEventListener('load', async() => {
     console.log(userId);
     
     const profile = await getUserId(userId);
-    console.log(profile);
-    if (+id === profile.id) {
-        console.log(profile.id, id, 'match'); 
-        editButton.classList.add('visible');
-    }
-    else {
-        console.log(profile.id, id, 'no match');
-        editButton.classList.add('hide');
-    }
+
+    editButton.classList.add(+id === profile.id ? 'visible' : 'hide');
+
+
 });
 
 logoutButton.addEventListener('click', () => {

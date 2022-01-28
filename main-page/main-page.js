@@ -13,7 +13,7 @@ const logoutButton = document.getElementById('logout');
 const profilesEl = document.querySelector('.profiles-container');
 const myPageButton = document.getElementById('my-page');
 const searchForm = document.querySelector('.search-form');
-// testing shit here
+// probably a good idea to look over this for porfessional language before sending it off to potential employers :)
 // const user = await getUser();
 // const userId = user.user.id;
 

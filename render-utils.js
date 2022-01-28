@@ -1,3 +1,5 @@
+// nice clean render utils! not a lot to say here--this code is clean and would be easy to maintain as the app scales. great work!
+
 export function renderProfile(profile) {
 
 
